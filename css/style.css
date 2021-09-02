@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+:root {
+    /* 
+    font-size: 10px;
+    where 10px = 1rem
+    remember rem stands for 'relative to font-size of the root element' (which is identical to the selector 'html')
+    */
+    font-size: 10px;
+    /* Colors */
+    --main-bg-color: #181719;
+    --white: #FFFFFF;
+    --gray-1: #f2f2f2;
+    --gray-2: #4f4f4f;
+    --gray-3: #A9A9A9;
+    --gray-4: #828282;
+    --yellow-royal: #fada5e;
+}
+
+::selection{
+    background-color: var(--yellow-royal);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--main-bg-color);
+    color: var(--white);
+    height: 100%;
+    width: 100%;
+}
+
+.container{
+    /* padding: 20px 12px; */
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+@media (min-width: 768px) {
+    .container{
+        width: 95%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container{
+        width: 90%;
+    }
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav__brand{
+    font-family: "Crimson Pro", sans-serif;
+    font-size: 1.4rem;
+    line-height: 16px;
+    text-transform: uppercase;
+    padding: 8px;
+    display: inline;
+    border: 1px solid var(--white);
+}
+
+.nav__toggle{   
+    background: transparent;
+    padding: 1em .5em;
+    border: 0;
+    z-index: 1;
+}
+
+@media (min-width: 1200px) {
+    .nav__toggle{
+        display: none;
+    }
+}
+
+.nav__hamburger{
+    display: block;
+    position: relative;
+}
+
+.nav__hamburger,
+.nav__hamburger::before,
+.nav__hamburger::after{
+    width: 30px;
+    height: 3px;
+    background-color: var(--gray-1);
+    transition: transform 350ms ease-in-out, 
+    opacity 200ms linear;
+}
+
+.nav__hamburger::before,
+.nav__hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.nav__hamburger::before{
+    bottom: 8px;
+}
+
+.nav__hamburger::after{
+    top: 8px;
+}
+
+/* Navigation open styles */
+
+.nav-open .nav__mobile {
+    width: 100%;
+}
+
+.nav-open .disable-scroll {
+    overflow: hidden;
+}
+
+/* Make an X on menu open */
+
+.nav-open .nav__hamburger {
+    transform: rotate(45deg);
+}
+  
+.nav-open .nav__hamburger::before {
+    opacity: 0;
+}
+  
+.nav-open .nav__hamburger::after {
+    transform: rotate(90deg) translate(-8px);
+}
+
+
+/* Full screen hamburger overly on click */
+.nav__mobile{
+  height: 100%;
+  width: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 22px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: var(--main-bg-color); 
+  overflow: hidden; 
+  transition: 0.5s; 
+}
+
+@media (min-width: 1200px) {
+    .nav__mobile{
+        position: relative;
+        width: 50%;
+    }
+}
+
+.nav__list{
+    position: relative;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.nav__item{
+    list-style-type: none;
+}
+
+@media (min-width: 1200px) {
+    .nav__list{
+        position: relative;
+        display: flex;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translate(0, 0);
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .nav__item{
+        /* giving the nav item a 'width' as to fix the
+            layout shift on hover when property 'bold' is applied
+        */
+        width: 14%;
+        text-align: right;
+    }
+    .nav__item:not(:last-child){
+        margin-right: 50px;
+    }
+}
+
+.nav__link{
+    padding: 18px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: var(--white);
+}
+
+@media (min-width: 1200px) {
+    .nav__link{
+        padding: 5px;
+    }
+}
+
+.nav__link:hover, .nav__link:focus {
+    color: var(--white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+
+
+
+/* Header */
+.header{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1200px) {
+    .header{
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+    }
+}
+
+.header__title{
+    margin-bottom: 25px;
+    font-family: "Lora", sans-serif;
+    font-weight: 500;
+    font-size: 3.6rem;
+    width: 274px;
+    line-height: 46px;
+}
+
+@media (min-width: 1200px) {
+    .header__title{
+        margin-bottom: 40px;
+        font-size: 4.8rem;
+        width: 365px;
+        line-height: 61px;
+    }
+}
+
+.header__text{
+    margin-bottom: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 17px;
+    width: 250px;
+}
+
+@media (min-width: 1200px) {
+    .header__text{
+        margin-bottom: 48px;
+        font-size: 2.4rem;
+        line-height: 29px;
+        width: 410px;
+    }
+}
+
+.header__btn{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 17px;
+    border: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: var(--white);
+    background-color: transparent;
+    padding: 15px 0 15px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+    .header__btn{
+        font-size: 1.8rem;
+        line-height: 22px;
+    }
+}
+
+.header__btn svg{
+    max-width: 4%;
+    display: block;
+    height: auto;
+    fill: currentColor;
+    margin-left: 15px;
+}
+
+.header__content{
+    position: relative;
+}
+
+@media (min-width: 1200px) {
+    .header__content{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.header__img{
+    max-width: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 1200px) {
+    .header__img{
+        width: 85%;
+    }
+}
+
+.header__profile{
+    width: 300px;
+    padding: 10px 19px 25px;
+    position: absolute;
+    top: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-right: 21px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.25);
+}
+
+@media (min-width: 992px) {
+    .header__profile{
+        width: 410px;
+        top: 86%;
+    }
+}
+
+/* User */
+
+.header__user{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1200px) {
+    .header__user{
+        margin-bottom: 30px;
+    }
+}
+
+.header__person{
+    max-width: 15%;
+    display: block;
+    width: 15%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* User details */
+.header__info{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    margin-left: 14px;
+}
+
+.header__name{
+    font-size: 1.2rem;
+    line-height: 15px;
+    text-transform: capitalize;
+}
+
+@media (min-width: 1200px) {
+    .header__name{
+        font-size: 1.4rem;
+        line-height: 17px;
+    }
+}
+
+.header__occupation{
+    font-size: 1rem;
+    line-height: 12px;
+    color: var(--gray-4);
+}
+
+@media (min-width: 1200px) {
+    .header__occupation{
+        font-size: 1.2rem;
+        line-height: 15px;
+    }
+}
+
+.header__subtitle{
+    font-family: "Lora", sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 23px;
+    width: 210px;
+}
+
+@media (min-width: 1200px) {
+    .header__subtitle{
+        font-size: 2.4rem;
+        line-height: 31px;
+        width: 287px;
+    }
+}
+
+
+
+
+/* Footer */
+footer{
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: var(--gray-3);
+    line-height: 17px;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
+
+footer span:first-child{
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+a{
+    color: var(--gray-3);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--gray-2);
+}

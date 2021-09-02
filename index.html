@@ -13,24 +13,36 @@
     <div class="container">
         <nav class="nav">
             <div class="nav__brand">This Interior</div>
-            <!-- <ul class="nav__links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Collection</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>   -->
-            <label class="nav__bars" for="bars">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <!-- Mobile view -->
+            <div class="nav__mobile">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Collection</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="nav__toggle js-nav-toggle">
+                <span class="nav__hamburger"></span>
+            </button>
         </nav>
 
         <header class="header">
-            <h1 class="header__title">Modern interior</h1>
-            <p class="header__text">A full-Service residential & commercial interior design and staging company offering professional organizing & eco-services.</p>
-            <button class="header__btn">Read more <img src="images/long-arrow-alt-right.svg" alt="Right Arrow"></button>
-
+            <div>
+                <div>
+                    <h1 class="header__title">Modern interior</h1>
+                    <p class="header__text">A full-Service residential & commercial interior design and staging company offering professional organizing & eco-services.</p>
+                </div>
+                <button class="header__btn">Read more <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></button>    
+            </div>
             <div class="header__content">
                 <img class="header__img" src="images/photo1.png" alt="Room Inner Interior">
                 <div class="header__profile">
